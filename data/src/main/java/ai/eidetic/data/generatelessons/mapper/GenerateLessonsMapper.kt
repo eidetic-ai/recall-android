@@ -16,7 +16,8 @@ class GenerateLessonsMapper {
         Deck(
             id = data.id.id.string,
             metadata = mapMetadata(data.metadata),
-            sections = data.sections.map { mapSection(it) }
+            sections = data.sections.map { mapSection(it) },
+            mastery = 0.0f
         )
 
     private fun mapMetadata(data: DeckMetadata) = MetadataDeckModel(

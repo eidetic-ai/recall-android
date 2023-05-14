@@ -3,7 +3,8 @@ package ai.eidetic.domain.generatelessons.model
 data class Deck(
     val id: String,
     val metadata: MetadataDeckModel,
-    val sections: List<SectionModel>
+    val sections: List<SectionModel>,
+    val mastery: Float,
 )
 
 data class MetadataDeckModel(

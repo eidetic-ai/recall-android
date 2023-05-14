@@ -1,6 +1,5 @@
 package ai.eidetic.deckcreation.ui
 
-import ai.eidetic.common.state.appAccessState.AppAccessViewStore
 import ai.eidetic.common.state.deckCreationState.DeckCreationViewStore
 import ai.eidetic.common.ui.components.Button
 import ai.eidetic.common.ui.components.HorizontalSpacer
@@ -8,8 +7,6 @@ import ai.eidetic.common.ui.components.VerticalSpacer
 import ai.eidetic.common.ui.theme.ColorPallet
 import ai.eidetic.common.R
 import ai.eidetic.common.ui.components.dashedBorder
-import ai.eidetic.common.ui.theme.subtitle3
-import android.net.Uri
 import androidx.activity.compose.rememberLauncherForActivityResult
 import androidx.activity.result.PickVisualMediaRequest
 import androidx.activity.result.contract.ActivityResultContracts
@@ -35,9 +32,6 @@ import androidx.compose.material.Text
 import androidx.compose.material.TopAppBar
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
-import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip

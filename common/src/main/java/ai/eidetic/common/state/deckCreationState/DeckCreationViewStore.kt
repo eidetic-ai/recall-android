@@ -2,32 +2,20 @@ package ai.eidetic.common.state.deckCreationState
 
 import ai.eidetic.common.state.appState.AppState
 import ai.eidetic.common.state.appState.deckCreationState
-import ai.eidetic.common.utils.loadDataFromJson
+import ai.eidetic.common.utils.loadDataFromJsonWithId
 import ai.eidetic.common.utils.saveDataAsJson
 import ai.eidetic.common.viewstore.ViewStore
 import ai.eidetic.domain.deckcreation.usecase.GetParagraphsFromImages
 import ai.eidetic.domain.generatelessons.model.Deck
 import ai.eidetic.domain.generatelessons.model.MetadataDeckModel
 import ai.eidetic.domain.generatelessons.usecase.GenerateDeck
-import android.content.Context
 import android.net.Uri
-import android.os.Build
-import androidx.annotation.RequiresApi
 import arrow.core.continuations.either
-import com.google.gson.Gson
-import com.google.gson.JsonSyntaxException
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import java.io.File
-import java.io.FileInputStream
-import java.io.FileOutputStream
-import java.io.IOException
-import java.io.InputStreamReader
-import java.io.OutputStreamWriter
 import java.lang.Exception
-import java.time.LocalDate
-import java.time.format.DateTimeFormatter
 
 class DeckCreationViewStore(
     private val getParagraphsFromImages: GetParagraphsFromImages,
@@ -145,6 +133,6 @@ class DeckCreationViewStore(
     }
 
     fun loadData(file: File, id: String): Deck?{
-        return loadDataFromJson(file, id)
+        return loadDataFromJsonWithId(file, id)
     }
 }

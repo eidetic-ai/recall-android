@@ -5,6 +5,7 @@ import ai.eidetic.common.di.commonModule
 import ai.eidetic.data.di.dataModule
 import ai.eidetic.deckcreation.di.deckCreationModule
 import ai.eidetic.domain.di.domainModule
+import ai.eidetic.learning.di.learningModule
 import ai.eidetic.service.di.serviceModule
 import android.app.Application
 import org.koin.android.ext.koin.androidContext
@@ -23,6 +24,7 @@ class RecallApp : Application() {
                 domainModule,
                 dataModule,
                 serviceModule,
+                learningModule,
             )
         }
     }

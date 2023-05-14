@@ -25,6 +25,7 @@ data class DeckCreationState(
                     due = ""
                 ),
                 sections = emptyList(),
+                mastery = 0.0f
             ),
             errorOccurred = false,
         )

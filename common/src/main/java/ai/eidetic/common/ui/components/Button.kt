@@ -19,6 +19,7 @@ import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 
@@ -30,8 +31,9 @@ fun Button(
     isLoading: Boolean = false,
     isEnabled: Boolean = true,
     onClick: () -> Unit = {},
+    backgroundColorDefault: Color = ColorPallet.neutral500,
 ) {
-    val backgroundColor by animateColorAsState(targetValue = if (isLoading.not() && isEnabled) ColorPallet.neutral500 else ColorPallet.neutral100)
+    val backgroundColor by animateColorAsState(targetValue = if (isLoading.not() && isEnabled) backgroundColorDefault else ColorPallet.neutral100)
     val contentColor by animateColorAsState(targetValue = if (isLoading.not() && isEnabled) ColorPallet.neutral0 else ColorPallet.neutral40)
 
     Row(

@@ -1,7 +1,6 @@
 package ai.eidetic.deckcreation.ui
 
 import ai.eidetic.common.state.deckCreationState.DeckCreationViewStore
-import ai.eidetic.common.ui.components.Button
 import ai.eidetic.common.ui.theme.ColorPallet
 import android.content.Context
 import android.net.Uri
@@ -23,7 +22,6 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.CircleShape
-import androidx.compose.material.IconButton
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.remember
@@ -41,7 +39,6 @@ import org.koin.androidx.compose.getViewModel
 import java.io.File
 import java.text.SimpleDateFormat
 import java.util.Locale
-import java.util.concurrent.Executor
 import java.util.concurrent.Executors
 import kotlin.coroutines.resume
 import kotlin.coroutines.suspendCoroutine
