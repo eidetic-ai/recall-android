@@ -1,0 +1,74 @@
+plugins {
+    id 'com.android.library'
+    id 'org.jetbrains.kotlin.android'
+    id("com.google.devtools.ksp").version("$ksp_version")
+}
+
+apply plugin: 'com.google.devtools.ksp'
+
+kotlin {
+    sourceSets.main {
+        kotlin.srcDir("build/generated/ksp/main/kotlin")
+    }
+    sourceSets.test {
+        kotlin.srcDir("build/generated/ksp/test/kotlin")
+    }
+    sourceSets.main {
+        kotlin.srcDir("build/generated/ksp/debug/kotlin")
+    }
+}
+
+android {
+    namespace 'ai.eidetic.domain'
+    compileSdk 33
+
+    defaultConfig {
+        minSdk 24
+        targetSdk 33
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        consumerProguardFiles "consumer-rules.pro"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+}
+
+dependencies {
+    implementation 'androidx.core:core-ktx:1.7.0'
+    implementation 'androidx.appcompat:appcompat:1.6.1'
+    implementation 'com.google.android.material:material:1.8.0'
+    testImplementation 'junit:junit:4.13.2'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.5'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
+
+    // Arrow
+    api "io.arrow-kt:arrow-core:$arrow_version"
+
+    //Arrow
+    implementation("io.arrow-kt:arrow-core:$arrow_version")
+    implementation("io.arrow-kt:arrow-optics:$arrow_version")
+    ksp("io.arrow-kt:arrow-optics-ksp-plugin:$arrow_version")
+    implementation("io.arrow-kt:arrow-fx-coroutines:$arrow_version")
+
+    //koin
+    implementation "io.insert-koin:koin-androidx-compose:$koin_androidx_compose_version"
+
+    //Retrofit
+    implementation "com.squareup.retrofit2:retrofit:$retrofit_version"
+    implementation("com.jakewharton.retrofit:retrofit2-kotlinx-serialization-converter:$kotlinx_serialization_retrofit_adapter_version")
+
+    // Kotlinx serialization
+    implementation "org.jetbrains.kotlinx:kotlinx-serialization-json:$kotlinx_serialization_version"
+}
